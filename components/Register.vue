@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import InputNumber from "primevue/inputnumber";
+
 // function getUltimoPeso(): string {
 //   return "80,9";
 // }
@@ -6,8 +8,8 @@
 
 const peso = ref(80.9);
 
-function registraPeso(): void {
-  console.log(peso);
+function registrarPeso(): void {
+  console.log(peso.value);
 }
 
 const dateToday = new Date(Date.now());
@@ -15,43 +17,51 @@ const hoje = dateToday.toLocaleDateString();
 </script>
 
 <template>
-  <form @submit.prevent="registraPeso">
-    <label for="peso"> Qual teu peso hoje? </label>
-    <input
-      type="number"
-      id="peso"
-      min="30"
-      max="200"
-      step="0.1"
-      :value="peso"
-    />
+  <form @submit.prevent="registrarPeso">
+    <div class="group">
+      <label for="peso">
+        Qual teu peso hoje <span>({{ hoje }})</span>?</label
+      >
+      <InputNumber
+        v-model="peso"
+        inputId="horizontal-buttons"
+        showButtons
+        buttonLayout="horizontal"
+        :step="0.1"
+        :min="50"
+        :max="100"
+      >
+        <template #incrementbuttonicon>
+          <span class="pi pi-plus" />
+        </template>
+        <template #decrementbuttonicon>
+          <span class="pi pi-minus" />
+        </template>
+      </InputNumber>
+    </div>
 
-    <button type="submit">Registrar</button>
+    <Button
+      aria-label="Registrar"
+      label="Registrar"
+      icon="pi pi-check"
+      iconPos="right"
+      type="submit"
+    />
   </form>
-  <span>({{ hoje }})</span>
 </template>
 
 <style scoped>
 form {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
+  align-items: center;
+  justify-items: center;
 }
 
-input {
-  width: 6ch;
-  padding: 0.5ch 1ch;
-  font-size: 1rem;
-}
-
-input::after {
-  content: " KG";
-  font-size: 1rem;
-  color: aqua;
-  width: 1rem;
-  height: 1rem;
-}
-
-span {
-  font-weight: 600;
+div.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
 }
 </style>
