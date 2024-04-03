@@ -13,9 +13,4 @@ main {
   display: grid;
   place-items: center;
 }
-
-body {
-  display: grid;
-  place-items: center;
-}
 </style>

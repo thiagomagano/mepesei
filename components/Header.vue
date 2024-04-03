@@ -8,7 +8,7 @@
   </header>
 </template>
 
-<style>
+<style scoped>
 header {
   display: grid;
   place-items: center;
@@ -27,13 +27,11 @@ li {
 }
 
 a {
-  text-decoration: underline;
-  font-weight: bold;
+  text-decoration: none;
+  font-weight: 500;
 }
-
-a:visited {
-  font-weight: bold;
-  color: white;
+a:hover {
+  text-decoration: underline;
 }
 
 span#logo {

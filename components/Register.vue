@@ -22,35 +22,38 @@ const hoje = dateToday.toLocaleDateString();
 </script>
 
 <template>
-  <form @submit.prevent="registrarPeso">
-    <div class="group">
-      <label for="peso"> Qual teu peso hoje?</label>
-      <InputNumber
-        v-model="peso"
-        inputId="horizontal-buttons"
-        showButtons
-        buttonLayout="horizontal"
-        :step="0.1"
-        :min="50"
-        :max="100"
-      >
-        <template #incrementbuttonicon>
-          <span class="pi pi-plus" />
-        </template>
-        <template #decrementbuttonicon>
-          <span class="pi pi-minus" />
-        </template>
-      </InputNumber>
-    </div>
+  <div>
+    <h1>Bora Gordão!</h1>
+    <form @submit.prevent="registrarPeso">
+      <div class="group">
+        <label for="peso"> Qual teu peso hoje?</label>
+        <InputNumber
+          v-model="peso"
+          inputId="horizontal-buttons"
+          showButtons
+          buttonLayout="horizontal"
+          :step="0.1"
+          :min="50"
+          :max="100"
+        >
+          <template #incrementbuttonicon>
+            <span class="pi pi-plus" />
+          </template>
+          <template #decrementbuttonicon>
+            <span class="pi pi-minus" />
+          </template>
+        </InputNumber>
+      </div>
 
-    <Button
-      aria-label="Registrar"
-      label="Registrar"
-      icon="pi pi-check"
-      iconPos="right"
-      type="submit"
-    />
-  </form>
+      <Button
+        aria-label="Registrar"
+        label="Registrar"
+        icon="pi pi-check"
+        iconPos="right"
+        type="submit"
+      />
+    </form>
+  </div>
 </template>
 
 <style scoped>
