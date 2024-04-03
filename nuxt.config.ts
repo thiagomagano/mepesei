@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: false },
   css: [
-    "primevue/resources/themes/lara-light-teal/theme.css",
+    "primevue/resources/themes/lara-dark-teal/theme.css",
     "@/assets/main.css",
     "primeicons/primeicons.css",
   ],

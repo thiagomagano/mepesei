@@ -9,7 +9,12 @@ import InputNumber from "primevue/inputnumber";
 const peso = ref(80.9);
 
 function registrarPeso(): void {
-  console.log(peso.value);
+  const registroDiario = {
+    peso: peso.value,
+    dia: hoje,
+  };
+
+  console.table(registroDiario);
 }
 
 const dateToday = new Date(Date.now());
@@ -19,9 +24,7 @@ const hoje = dateToday.toLocaleDateString();
 <template>
   <form @submit.prevent="registrarPeso">
     <div class="group">
-      <label for="peso">
-        Qual teu peso hoje <span>({{ hoje }})</span>?</label
-      >
+      <label for="peso"> Qual teu peso hoje?</label>
       <InputNumber
         v-model="peso"
         inputId="horizontal-buttons"
