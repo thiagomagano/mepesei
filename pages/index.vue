@@ -1,12 +1,9 @@
-<script setup lang="ts">
-const name = "Thi";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main>
     <div>
       <h1>Bora Gordão!</h1>
-
       <Register />
     </div>
   </main>
@@ -14,7 +11,7 @@ const name = "Thi";
 
 <style scoped>
 main {
-  height: 95svh;
+  height: 90svh;
   margin: 0;
   display: grid;
   place-items: center;
