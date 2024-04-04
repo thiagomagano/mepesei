@@ -8,6 +8,13 @@
       "when": 1712250921552,
       "tag": "0000_curious_exodus",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1712255479291,
+      "tag": "0001_optimal_vanisher",
+      "breakpoints": true
     }
   ]
 }

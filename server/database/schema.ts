@@ -8,5 +8,7 @@ export const registries = sqliteTable("registries", {
     .default(sql`CURRENT_DATE`)
     .notNull()
     .unique(),
-  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" }).default(
+    sql`CURRENT_TIMESTAMP`
+  ),
 });

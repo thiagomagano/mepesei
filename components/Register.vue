@@ -10,11 +10,14 @@ const peso = ref(80.9);
 
 function registrarPeso(): void {
   const registroDiario = {
-    peso: peso.value,
-    dia: hoje,
+    weight: peso.value.toString(),
   };
 
   console.table(registroDiario);
+
+  useFetch("/api/registries", {
+    registroDiario,
+  });
 }
 
 const dateToday = new Date(Date.now());
