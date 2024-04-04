@@ -8,20 +8,19 @@ import InputNumber from "primevue/inputnumber";
 
 const peso = ref(80.9);
 
-function registrarPeso(): void {
-  const registroDiario = {
-    weight: peso.value.toString(),
-  };
-
-  console.table(registroDiario);
-
-  useFetch("/api/registries", {
-    registroDiario,
+async function registrarPeso() {
+  const registry = await $fetch("/api/registries", {
+    method: "POST",
+    body: {
+      weight: peso.value,
+    },
   });
+
+  return registry;
 }
 
-const dateToday = new Date(Date.now());
-const hoje = dateToday.toLocaleDateString();
+// const dateToday = new Date(Date.now());
+// const hoje = dateToday.toLocaleDateString();
 </script>
 
 <template>
