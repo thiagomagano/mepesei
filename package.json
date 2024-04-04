@@ -7,9 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "db:generate": "drizzle-kit generate:sqlite"
   },
   "dependencies": {
+    "better-sqlite3": "^9.4.5",
+    "drizzle-orm": "^0.30.7",
     "nuxt": "^3.11.1",
     "primeicons": "^7.0.0",
     "primevue": "^3.50.0",
@@ -17,6 +20,8 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "drizzle-kit": "^0.20.14",
     "nuxt-primevue": "^0.3.1"
   }
 }
