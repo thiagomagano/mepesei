@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `registries_date_unique` ON `registries` (`date`);

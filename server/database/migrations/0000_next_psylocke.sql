@@ -1,0 +1,6 @@
+CREATE TABLE `registries` (
+	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	`weight` text DEFAULT '80' NOT NULL,
+	`date` text DEFAULT CURRENT_DATE NOT NULL,
+	`created_at` integer DEFAULT CURRENT_TIMESTAMP NOT NULL
+);

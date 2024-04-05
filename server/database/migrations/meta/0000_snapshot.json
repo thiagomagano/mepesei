@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "1ee534ed-57db-449e-8e9f-ef0eb6dc96ba",
+  "id": "b12c43fd-d100-4e2b-9eee-1b38d0ac365c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "registries": {
@@ -19,7 +19,8 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true,
-          "autoincrement": false
+          "autoincrement": false,
+          "default": "'80'"
         },
         "date": {
           "name": "date",
@@ -34,18 +35,11 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
-          "autoincrement": false
+          "autoincrement": false,
+          "default": "CURRENT_TIMESTAMP"
         }
       },
-      "indexes": {
-        "registries_date_unique": {
-          "name": "registries_date_unique",
-          "columns": [
-            "date"
-          ],
-          "isUnique": true
-        }
-      },
+      "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}

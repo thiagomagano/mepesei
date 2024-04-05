@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "77d63506-6aae-4957-b5e3-96a1bd833b6a",
-  "prevId": "1ee534ed-57db-449e-8e9f-ef0eb6dc96ba",
+  "id": "83854daf-4ff3-4ad3-8de7-7a3041867e0b",
+  "prevId": "b12c43fd-d100-4e2b-9eee-1b38d0ac365c",
   "tables": {
     "registries": {
       "name": "registries",
@@ -19,7 +19,8 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true,
-          "autoincrement": false
+          "autoincrement": false,
+          "default": "'80'"
         },
         "date": {
           "name": "date",
@@ -33,7 +34,7 @@
           "name": "created_at",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false,
           "default": "CURRENT_TIMESTAMP"
         }

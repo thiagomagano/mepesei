@@ -4,9 +4,8 @@ export default defineNuxtConfig({
     head: {
       title: "Me Pesei",
     },
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   css: [
     "primevue/resources/themes/lara-dark-teal/theme.css",
     "@/assets/main.css",

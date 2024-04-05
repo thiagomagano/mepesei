@@ -1,4 +1,4 @@
-export { sql, eq, and, or } from "drizzle-orm";
+export { sql, eq, and, or, desc } from "drizzle-orm";
 
 import * as schema from "../database/schema";
 

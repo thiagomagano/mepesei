@@ -1,36 +1,38 @@
 <script setup lang="ts">
 import InputNumber from "primevue/inputnumber";
 
-// function getUltimoPeso(): string {
-//   return "80,9";
-// }
-// const ultimoPeso = getUltimoPeso();
+const props = defineProps(["lastWeight"]);
 
-const peso = ref(80.9);
+const dateToday = computed(() =>
+  new Date(Date.now()).toLocaleDateString("pt-BR")
+);
+const weight = ref(props.lastWeight);
 
-async function registrarPeso() {
-  const registry = await $fetch("/api/registries", {
-    method: "POST",
-    body: {
-      weight: peso.value,
-    },
-  });
-
-  return registry;
-}
-
-// const dateToday = new Date(Date.now());
-// const hoje = dateToday.toLocaleDateString();
+const submit = async () => {
+  try {
+    const response = await $fetch("/api/registries", {
+      method: "POST",
+      body: {
+        weight: weight.value,
+        date: dateToday.value,
+      },
+    });
+    return registry;
+  } catch (err) {
+    console.log(err.status);
+  }
+};
 </script>
 
 <template>
   <div>
     <h1>Bora Gordão!</h1>
-    <form @submit.prevent="registrarPeso">
+
+    <form @submit.prevent="submit">
       <div class="group">
-        <label for="peso"> Qual teu peso hoje?</label>
+        <label for="weight"> Qual teu weight hoje? {{ dateToday }}</label>
         <InputNumber
-          v-model="peso"
+          v-model="weight"
           inputId="horizontal-buttons"
           showButtons
           buttonLayout="horizontal"
