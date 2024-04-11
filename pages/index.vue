@@ -7,28 +7,21 @@ const {
 
 const today = ref(new Date(Date.now()).toLocaleDateString("pt-BR"));
 
-function calcStreak(last: any): boolean {
-  //debug
-  console.log("last: ", last, "today: ", today.value);
-
-  return last === today.value;
-}
-
-const isRegistryToday = computed(() => calcStreak(registries.value?.date));
+const isRegistryToday = ref(registries.value?.date === today.value);
 </script>
 
 <template>
   <p v-if="pending">Fetching...</p>
   <pre v-else-if="error">Could not load quote: {{ error.data }}</pre>
   <div v-else>
-    <div>
+    <div v-if="isRegistryToday">
       <h1>Voce já registrou seu peso hoje!</h1>
       <p>
         O Registro com peso de
         {{ registries?.weight }} Kg's
       </p>
     </div>
-    <div>
+    <div v-else>
       <Register :last-weight="registries?.weight" />
     </div>
   </div>

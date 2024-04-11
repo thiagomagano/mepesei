@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "db:generate": "drizzle-kit generate:sqlite"
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:studio": "npm exec drizzle-kit studio"
   },
   "dependencies": {
     "better-sqlite3": "^9.4.5",

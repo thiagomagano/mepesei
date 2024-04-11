@@ -2,8 +2,8 @@
   <header>
     <span id="logo">Me Pesei</span>
     <ul>
-      <li><a href="/">Registrar </a></li>
-      <li><a href="/control"> Controle</a></li>
+      <li><NuxtLink href="/">Registrar </NuxtLink></li>
+      <li><NuxtLink href="/control"> Controle</NuxtLink></li>
     </ul>
   </header>
 </template>

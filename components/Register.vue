@@ -9,18 +9,16 @@ const dateToday = computed(() =>
 const weight = ref(props.lastWeight);
 
 const submit = async () => {
-  try {
-    const response = await $fetch("/api/registries", {
-      method: "POST",
-      body: {
-        weight: weight.value,
-        date: dateToday.value,
-      },
-    });
-    return registry;
-  } catch (err) {
-    console.log(err.status);
-  }
+  await $fetch("/api/registries", {
+    method: "POST",
+    body: {
+      weight: weight.value,
+      date: dateToday.value,
+    },
+    onResponse() {
+      navigateTo("/");
+    },
+  });
 };
 </script>
 
@@ -28,7 +26,7 @@ const submit = async () => {
   <div>
     <h1>Bora Gordão!</h1>
 
-    <form @submit.prevent="submit">
+    <form @submit="submit">
       <div class="group">
         <label for="weight"> Qual teu weight hoje? {{ dateToday }}</label>
         <InputNumber
