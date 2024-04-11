@@ -7,10 +7,12 @@ App para registrar diariamente o peso.
 - [x] Criar banco de dados com o Nuxt + Drizzle.
 - [x] Salvar registro de peso diário no Banco.
 - [x] Listar Pesos
-- [ ] Gerar feedback pro usuário
-- [ ] Tratar erros
+- [x] Buscar ultimo registo
+- [ ] Delete
+- [ ] Update
 - [ ] Melhorar design da listagem
-- [ ] Buscar ultimo registo
+
+- [ ] Error Handling and Feedback to user
 - [ ] Fazer componente de Streak
 
 ## Infra TO-DO
