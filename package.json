@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "db:generate": "drizzle-kit generate:sqlite",
-    "db:studio": "npm exec drizzle-kit studio"
+    "db:studio": "npm exec drizzle-kit studio",
+    "deploy:sync": "rsync -r .output magano@magano-server:/home/magano/code/mepesei/"
   },
   "dependencies": {
     "better-sqlite3": "^9.4.5",
@@ -21,8 +22,10 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.11.4",
     "@types/better-sqlite3": "^7.6.9",
     "drizzle-kit": "^0.20.14",
-    "nuxt-primevue": "^0.3.1"
+    "nuxt-primevue": "^0.3.1",
+    "vite-plugin-tailwind-purgecss": "^0.3.0"
   }
 }

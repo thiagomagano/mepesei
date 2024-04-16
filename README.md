@@ -8,7 +8,7 @@ App para registrar diariamente o peso.
 - [x] Salvar registro de peso diário no Banco.
 - [x] Listar Pesos
 - [x] Buscar ultimo registo
-- [ ] Delete
+- [x] Delete
 - [ ] Update
 - [ ] Melhorar design da listagem
 

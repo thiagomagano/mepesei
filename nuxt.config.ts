@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     "@/assets/main.css",
     "primeicons/primeicons.css",
   ],
-  modules: ["nuxt-primevue"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-primevue"],
   primevue: {
     options: {
       ripple: true,

@@ -1,24 +1,12 @@
 <script setup lang="ts">
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import ColumnGroup from "primevue/columngroup"; // optional
+import Row from "primevue/row"; // optional
+
 const { data, refresh } = await useFetch("/api/registries");
 
-const editRegistry = ref({
-  weight: "",
-  date: "",
-});
-
-const editar = async (id: number) => {
-  const registry = data?.value?.find((r) => r.id === id);
-
-  const edited = await $fetch("/api/registries", {
-    method: "PUT",
-    body: {
-      id,
-      weight: editRegistry.value.weight,
-      date: editRegistry.value.date,
-    },
-  });
-  console.log(edited);
-};
+const { data: maiorPeso } = await useFetch("/api/registries/bigger");
 
 const excluir = async (id: number) => {
   //TO DO pop up de confirmação
@@ -36,27 +24,28 @@ const excluir = async (id: number) => {
 
 <template>
   <div>
-    <h1>Lista de Pessagens</h1>
-    <table>
-      <tr>
-        <th>Data</th>
-        <th>Peso</th>
-      </tr>
-      <tr class="itens" v-for="item in data">
-        <td>{{ item.date }}</td>
-        <td>{{ item.weight }} kg's</td>
-        <!-- <td>
-          <Button icon="pi pi-pencil" aria-label="Editar" />
-        </td> -->
-        <td>
+    <DataTable :value="data" tableStyle="min-width: 50rem">
+      <template #header>
+        <div
+          class="flex flex-wrap align-items-center justify-content-between gap-2"
+        >
+          <span class="text-xl text-900 font-bold">Pessagens</span>
+          <Button icon="pi pi-refresh" rounded raised />
+        </div>
+      </template>
+      <Column field="id" header="id"></Column>
+      <Column field="date" header="Data" :sortable="true"></Column>
+      <Column field="weight" header="Peso" :sortable="true"></Column>
+      <Column header="Exlcuir">
+        <template #body="slotProps">
           <Button
+            @click="excluir(slotProps.data.id)"
             icon="pi pi-trash"
             aria-label="Excluir"
-            @click="excluir(item.id)"
           />
-        </td>
-      </tr>
-    </table>
+        </template>
+      </Column>
+    </DataTable>
   </div>
 </template>
 
